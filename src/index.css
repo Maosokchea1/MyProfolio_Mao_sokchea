@@ -1,0 +1,72 @@
+@import "tailwindcss";
+
+html {
+    color-scheme: light;
+}
+
+html[data-theme="dark"] {
+    color-scheme: dark;
+}
+
+html[data-theme="light"] .bg-slate-950,
+html[data-theme="light"] .bg-slate-950\/80 {
+    background-color: #f8fafc;
+}
+
+html[data-theme="light"] .bg-slate-900,
+html[data-theme="light"] .bg-slate-900\/60,
+html[data-theme="light"] .bg-slate-900\/70 {
+    background-color: #fff;
+}
+
+html[data-theme="light"] .border-slate-800 {
+    border-color: #e2e8f0;
+}
+
+html[data-theme="light"] .text-white {
+    color: #172033;
+}
+
+html[data-theme="light"] .bg-indigo-600.text-white,
+html[data-theme="light"] .bg-indigo-500.text-white {
+    color: #fff;
+}
+
+html[data-theme="light"] .text-slate-300,
+html[data-theme="light"] .text-slate-400 {
+    color: #475569;
+}
+
+body {
+    margin: 0;
+    min-width: 320px;
+    color: #172033;
+    background: #f6f7fb;
+    font-family: Inter, Arial, Helvetica, sans-serif;
+    text-rendering: optimizeLegibility;
+}
+
+::selection {
+    color: #fff;
+    background: #4f46e5;
+}
+
+button,
+a,
+input,
+textarea {
+    outline-color: #4f46e5;
+}
+@keyframes marquee-bounce {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(35px); /* ចម្ងាយដែលត្រូវរត់ទៅស្តាំ (អាចកែសម្រួលបានតាមតម្រូវការ) */
+  }
+}
+
+.animate-marquee {
+  display: inline-block;
+  animation: marquee-bounce 4s ease-in-out infinite;
+}
