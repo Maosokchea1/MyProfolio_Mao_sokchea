@@ -8,33 +8,33 @@ export default function SkillsSection() {
     const { skills, loading, error } = useSkills();
     const [activeTab, setActiveTab] = useState("all");
 
-    // Filter skills based on category/keywords
-    const frontendSkills = skills.filter(
+    // Filter skills safely using optional chaining and default fallback arrays
+    const frontendSkills = skills?.filter(
         (skill) =>
             skill.category?.toLowerCase() === "frontend" ||
             ["react", "vue", "html", "css", "tailwind", "javascript", "typescript"].some((keyword) =>
                 skill.name?.toLowerCase().includes(keyword)
             )
-    );
+    ) || [];
 
-    const backendSkills = skills.filter(
+    const backendSkills = skills?.filter(
         (skill) =>
             skill.category?.toLowerCase() === "backend" ||
             ["node", "express", "laravel", "php", "python", "django", "java"].some((keyword) =>
                 skill.name?.toLowerCase().includes(keyword)
             )
-    );
+    ) || [];
 
-    const otherSkills = skills.filter(
+    const otherSkills = skills?.filter(
         (skill) => !frontendSkills.includes(skill) && !backendSkills.includes(skill)
-    );
+    ) || [];
 
     // Get displayed skills based on active button tab
     const getDisplayedSkills = () => {
         if (activeTab === "frontend") return frontendSkills;
         if (activeTab === "backend") return backendSkills;
         if (activeTab === "other") return otherSkills;
-        return skills; // "all"
+        return skills || []; // "all"
     };
 
     const displayedSkills = getDisplayedSkills();
@@ -48,7 +48,7 @@ export default function SkillsSection() {
                 {/* Section Title (Centered) */}
                 <div className="flex flex-col items-center text-center">
                     <SectionTitle subtitle="The tools I use to design, build and maintain web applications.">
-                        <span className="bg-gradient-to-r from-white via-slate-200 to-slate-400 bg-clip-text text-transparent">
+                        <span className="bg-linear-to-r from-white via-slate-200 to-slate-400 bg-clip-text text-transparent">
                             Skills & Expertise
                         </span>
                     </SectionTitle>

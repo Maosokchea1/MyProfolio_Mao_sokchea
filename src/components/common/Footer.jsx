@@ -11,7 +11,7 @@ const Footer = () => {
           {/* Brand Section */}
           <div className="col-span-1 md:col-span-1">
             <div className="flex items-center gap-2 mb-4">
-              <span className="text-2xl font-bold tracking-wider bg-gradient-to-r from-orange-400 to-orange-600 bg-clip-text text-transparent">
+              <span className="text-2xl font-bold tracking-wider bg-linear-to-r from-orange-400 to-orange-600 bg-clip-text text-transparent">
                 MyPortfolio
               </span>
               <span className="w-2 h-2 bg-orange-400 rounded-full"></span>

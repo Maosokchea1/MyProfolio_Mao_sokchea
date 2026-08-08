@@ -13,7 +13,7 @@ export default function AboutSection() {
                 {/* Section Title Area (Centered) */}
                 <div className="flex flex-col items-center">
                     <SectionTitle subtitle={profile.title}>
-                        <span className="bg-gradient-to-r from-white via-slate-200 to-slate-400 bg-clip-text text-transparent">
+                        <span className="bg-linear-to-r from-white via-slate-200 to-slate-400 bg-clip-text text-transparent">
                             About me
                         </span>
                     </SectionTitle>
@@ -22,7 +22,7 @@ export default function AboutSection() {
                 {/* Content Card Area (Centered) */}
                 <div className="mt-12 relative rounded-3xl border border-slate-800 bg-slate-900/60 p-8 shadow-2xl backdrop-blur-xl sm:p-12 text-left">
                     {/* Inner Glow Border Effect */}
-                    <div className="absolute -inset-px rounded-3xl bg-gradient-to-b from-indigo-500/20 via-transparent to-transparent opacity-50 pointer-events-none" />
+                    <div className="absolute -inset-px rounded-3xl bg-linear-to-b from-indigo-500/20 via-transparent to-transparent opacity-50 pointer-events-none" />
 
                     <div className="relative">
                         {loading ? (
@@ -67,7 +67,7 @@ function ProfileItem({ label, value }) {
             <dt className="text-xs font-bold uppercase tracking-wider text-slate-500 group-hover:text-indigo-400 transition-colors">
                 {label}
             </dt>
-            <dd className="mt-1.5 text-sm font-semibold text-slate-200 break-words">
+            <dd className="mt-1.5 text-sm font-semibold text-slate-200 wrap-break-word">
                 {value}
             </dd>
         </div>

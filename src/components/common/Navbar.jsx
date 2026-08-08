@@ -26,7 +26,7 @@ export default function Navbar() {
                 <div className="flex h-20 items-center justify-between gap-6">
                     <NavLink to="/" className="group flex items-center gap-3" onClick={() => setMenuOpen(false)}>
                         <img src={logo} alt="" className="h-10 w-10 rounded-full border border-slate-700 object-cover transition-transform duration-300 group-hover:scale-105" />
-                        <span className="hidden bg-gradient-to-r from-white via-slate-200 to-slate-400 bg-clip-text text-lg font-bold text-transparent sm:block">
+                        <span className="hidden bg-linear-to-r from-white via-slate-200 to-slate-400 bg-clip-text text-lg font-bold text-transparent sm:block">
                             {profile.full_name}
                         </span>
                     </NavLink>

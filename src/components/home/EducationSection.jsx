@@ -31,7 +31,9 @@ export default function EducationSection() {
     };
 
     // Filter education items based on button selection
-    const filteredItems = items.filter((item) => {
+    const educationItems = Array.isArray(items) ? items : [];
+
+    const filteredItems = educationItems.filter((item) => {
         if (activeFilter !== "all" && item.level) {
             return item.level === activeFilter;
         }
@@ -65,7 +67,7 @@ export default function EducationSection() {
                 {/* Section Title & Subtitle (Centered) */}
                 <div className="flex flex-col items-center text-center">
                     <SectionTitle subtitle={labels.subtitle}>
-                        <span className="bg-gradient-to-r from-white via-slate-200 to-slate-400 bg-clip-text text-transparent">
+                        <span className="bg-linear-to-r from-white via-slate-200 to-slate-400 bg-clip-text text-transparent">
                             {labels.title}
                         </span>
                     </SectionTitle>

@@ -22,7 +22,7 @@ export default function ProjectCard({ project, number }) {
             )}
 
             <div className="mt-5 flex items-end justify-between gap-4">
-                <p className="text-xs font-bold uppercase tracking-[0.1em] text-[#4f46e5]">
+                <p className="text-xs font-bold uppercase tracking-widest text-[#4f46e5]">
                     {project.technologies || project.technology}
                 </p>
                 <Link

@@ -9,7 +9,9 @@ export default function ServicesSection() {
     const [activeFilter, setActiveFilter] = useState("all");
 
     // Filter services based on category/title
-    const filteredServices = services.filter((service) => {
+    const serviceList = Array.isArray(services) ? services : [];
+
+    const filteredServices = serviceList.filter((service) => {
         const title = service.title?.toLowerCase() || "";
         const desc = service.description?.toLowerCase() || "";
 
@@ -34,7 +36,7 @@ export default function ServicesSection() {
                 {/* Section Title & Subtitle (Centered) */}
                 <div className="flex flex-col items-center text-center">
                     <SectionTitle subtitle="Practical development services for web applications and digital products.">
-                        <span className="bg-gradient-to-r from-white via-slate-200 to-slate-400 bg-clip-text text-transparent">
+                        <span className="bg-linear-to-r from-white via-slate-200 to-slate-400 bg-clip-text text-transparent">
                             My Services
                         </span>
                     </SectionTitle>

@@ -57,7 +57,7 @@ export default function ProjectDetail() {
                     <h1 className="mt-4 max-w-4xl text-3xl font-extrabold tracking-tight text-white sm:text-5xl">
                         {project.title}
                     </h1>
-                    <p className="mt-4 text-xs font-bold uppercase tracking-[0.1em] text-slate-400">
+                    <p className="mt-4 text-xs font-bold uppercase tracking-widest text-slate-400">
                         {project.technology}
                     </p>
                 </header>

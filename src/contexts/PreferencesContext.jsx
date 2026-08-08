@@ -2,19 +2,35 @@ import { createContext, useContext, useEffect, useMemo, useState } from "react";
 
 const PreferencesContext = createContext(null);
 
+function readStorageValue(key, fallback) {
+    try {
+        return localStorage.getItem(key) || fallback;
+    } catch {
+        return fallback;
+    }
+}
+
 export function PreferencesProvider({ children }) {
-    const [theme, setTheme] = useState(() => localStorage.getItem("theme") || "dark");
-    const [language, setLanguage] = useState(() => localStorage.getItem("language") || "en");
+    const [theme, setTheme] = useState(() => readStorageValue("theme", "dark"));
+    const [language, setLanguage] = useState(() => readStorageValue("language", "en"));
 
     useEffect(() => {
-        document.documentElement.dataset.theme = theme;
-        document.documentElement.classList.toggle("light", theme === "light");
-        localStorage.setItem("theme", theme);
+        try {
+            document.documentElement.dataset.theme = theme;
+            document.documentElement.classList.toggle("light", theme === "light");
+            localStorage.setItem("theme", theme);
+        } catch {
+            // Ignore storage or document access errors and keep rendering.
+        }
     }, [theme]);
 
     useEffect(() => {
-        document.documentElement.lang = language === "km" ? "km" : "en";
-        localStorage.setItem("language", language);
+        try {
+            document.documentElement.lang = language === "km" ? "km" : "en";
+            localStorage.setItem("language", language);
+        } catch {
+            // Ignore storage or document access errors and keep rendering.
+        }
     }, [language]);
 
     const value = useMemo(() => ({
@@ -28,5 +44,10 @@ export function PreferencesProvider({ children }) {
 }
 
 export function usePreferences() {
-    return useContext(PreferencesContext);
+    return useContext(PreferencesContext) || {
+        theme: "dark",
+        language: "en",
+        toggleTheme: () => {},
+        toggleLanguage: () => {},
+    };
 }

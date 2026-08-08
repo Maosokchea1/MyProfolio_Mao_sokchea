@@ -25,7 +25,9 @@ export default function ExperienceSection() {
     };
 
     // Filter experiences based on position or description
-    const filteredExperiences = experiences.filter((exp) => {
+    const experienceList = Array.isArray(experiences) ? experiences : [];
+
+    const filteredExperiences = experienceList.filter((exp) => {
         const position = exp.position?.toLowerCase() || "";
         const desc = exp.description?.toLowerCase() || "";
         const company = exp.company_name?.toLowerCase() || "";
@@ -51,7 +53,7 @@ export default function ExperienceSection() {
                 {/* Section Title & Subtitle (Centered) */}
                 <div className="flex flex-col items-center text-center">
                     <SectionTitle subtitle="Roles, responsibilities and professional work.">
-                        <span className="bg-gradient-to-r from-white via-slate-200 to-slate-400 bg-clip-text text-transparent">
+                        <span className="bg-linear-to-r from-white via-slate-200 to-slate-400 bg-clip-text text-transparent">
                             Work Experience
                         </span>
                     </SectionTitle>

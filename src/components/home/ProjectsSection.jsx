@@ -10,7 +10,9 @@ export default function ProjectsSection() {
     const [activeFilter, setActiveFilter] = useState("all");
 
     // Filter projects based on category/technologies
-    const filteredProjects = projects.filter((project) => {
+    const projectList = Array.isArray(projects) ? projects : [];
+
+    const filteredProjects = projectList.filter((project) => {
         const category = project.category?.toLowerCase() || "";
         const tech = project.technologies?.toLowerCase() || "";
         const title = project.title?.toLowerCase() || "";
@@ -36,7 +38,7 @@ export default function ProjectsSection() {
                 {/* Centered Title, Role Highlight, & Filter Buttons */}
                 <div className="flex flex-col items-center text-center">
                     <SectionTitle subtitle="Selected applications and systems I have built.">
-                        <span className="bg-gradient-to-r from-white via-slate-200 to-slate-400 bg-clip-text text-transparent">
+                        <span className="bg-linear-to-r from-white via-slate-200 to-slate-400 bg-clip-text text-transparent">
                             My Projects
                         </span>
                     </SectionTitle>

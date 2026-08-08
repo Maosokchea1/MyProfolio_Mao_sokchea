@@ -59,7 +59,7 @@ function HeroSection() {
     }, [displayedName, isDeleting, fullName, loopNum, typingSpeed]);
 
     return (
-        <section className={`relative overflow-hidden transition-colors duration-300 ${light ? "bg-gradient-to-b from-white via-slate-50 to-slate-100 text-slate-900" : "bg-gradient-to-b from-slate-900 via-slate-900 to-slate-950 text-white"}`}>
+        <section className={`relative overflow-hidden transition-colors duration-300 ${light ? "bg-linear-to-b from-white via-slate-50 to-slate-100 text-slate-900" : "bg-linear-to-b from-slate-900 via-slate-900 to-slate-950 text-white"}`}>
             {/* Background Decorative Glow Effects */}
             <div className="absolute -top-40 -left-40 h-96 w-96 rounded-full bg-indigo-500/10 blur-3xl" />
             <div className="absolute top-1/2 -right-40 h-96 w-96 rounded-full bg-emerald-500/10 blur-3xl" />
@@ -71,7 +71,7 @@ function HeroSection() {
                     {/* Full Name with Typewriter (Delete & Rewrite) Effect */}
                     <h1 className="max-w-3xl text-4xl font-extrabold tracking-tight sm:text-6xl lg:text-7xl min-h-[1.1em]">
                         <span 
-                            className={`bg-gradient-to-r bg-clip-text text-transparent ${
+                            className={`bg-linear-to-r bg-clip-text text-transparent ${
                                 light 
                                     ? "from-slate-950 via-slate-800 to-slate-600" 
                                     : "from-white via-slate-200 to-slate-400"
