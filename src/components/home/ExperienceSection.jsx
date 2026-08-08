@@ -24,7 +24,7 @@ export default function ExperienceSection() {
         }).format(new Date(`${date.slice(0, 10)}T00:00:00`));
     };
 
-    // Filter experiences based on position or description
+    // Filter experiences based on position or description safely using experienceList
     const experienceList = Array.isArray(experiences) ? experiences : [];
 
     const filteredExperiences = experienceList.filter((exp) => {
@@ -115,7 +115,8 @@ export default function ExperienceSection() {
                 )}
                 {error && <p className="text-center text-red-400 py-6">{error}</p>}
 
-                {!loading && !error && experiences.length === 0 && (
+                {/* 🛠️ បានកែពី experiences.length មកជា experienceList.length ដើម្បីការពារ Error */}
+                {!loading && !error && experienceList.length === 0 && (
                     <div className="mt-12 text-center">
                         <p className="inline-block rounded-2xl border border-slate-800 bg-slate-900/60 p-6 text-slate-400 backdrop-blur-xl">
                             Work experience will be available soon.
