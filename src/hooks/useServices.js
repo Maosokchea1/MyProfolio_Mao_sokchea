@@ -1,17 +1,17 @@
 import { useEffect, useState } from "react";
-import { getServices } from "../services/serviceService";
+import api from "../services/api";
 
-export default function useServices() {
-    const [services, setServices] = useState([]);
+export default function useSkills() {
+    const [skills, setSkills] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState("");
 
     useEffect(() => {
-        getServices()
-            .then((response) => setServices(response.data ?? []))
-            .catch(() => setError("Unable to load services."))
+        api.get('/skills')
+            .then((response) => setSkills(response.data.data ?? []))
+            .catch(() => setError("Unable to load skills."))
             .finally(() => setLoading(false));
     }, []);
 
-    return { services, loading, error };
+    return { skills, loading, error };
 }

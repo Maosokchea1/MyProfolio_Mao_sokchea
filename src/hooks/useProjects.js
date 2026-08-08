@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { getProjects } from "../services/projectService";
+import api from "../services/api"; // ហៅ api.js ផ្ទាល់
 
 export default function useProjects() {
     const [projects, setProjects] = useState([]);
@@ -7,9 +7,9 @@ export default function useProjects() {
     const [error, setError] = useState("");
 
     useEffect(() => {
-        getProjects()
-            .then((response) => setProjects(response.data ?? []))
-            .catch(() => setError("Unable to load projects. Make sure the backend is running."))
+        api.get('/projects') // ប្រើ api.get ត្រង់នេះ
+            .then((response) => setProjects(response.data.data ?? []))
+            .catch(() => setError("Unable to load projects."))
             .finally(() => setLoading(false));
     }, []);
 
