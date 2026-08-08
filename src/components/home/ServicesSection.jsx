@@ -43,7 +43,7 @@ export default function ServicesSection() {
 
                     {/* Specialized Roles Highlight Text */}
                     <p className="mt-4 text-sm sm:text-base font-medium text-indigo-400 bg-indigo-500/10 border border-indigo-500/20 px-4 py-2 rounded-xl backdrop-blur-md">
-                         មានទទួលធ្វើ Frontend, Backend and Full Stack Developer
+                        មានទទួលធ្វើ Frontend, Backend and Full Stack Developer
                     </p>
 
                     {/* Service Filter Buttons (Centered) */}
@@ -98,7 +98,7 @@ export default function ServicesSection() {
                 )}
                 {error && <p className="text-center text-red-400 py-6">{error}</p>}
 
-                {!loading && !error && services.length === 0 && (
+                {!loading && !error && serviceList.length === 0 && (
                     <div className="mt-12 text-center">
                         <p className="inline-block rounded-2xl border border-slate-800 bg-slate-900/60 p-6 text-slate-400 backdrop-blur-xl">
                             Services will be available soon.
